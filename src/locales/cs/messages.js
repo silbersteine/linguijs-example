@@ -1,0 +1,1 @@
+/*eslint-disable*/module.exports={messages:JSON.parse("{\"Message Inbox\":\"Příchozí zprávy\"}")};

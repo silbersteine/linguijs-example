@@ -6,3 +6,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: @lingui/cli\n"
 "Language: cs\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: src/Inbox.js:13
+msgid "Message Inbox"
+msgstr "Příchozí zprávy"
+
+#: src/Inbox.js:16
+msgid "See all <0>unread messages</0> or <1>mark them</1> as read."
+msgstr ""

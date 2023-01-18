@@ -1,0 +1,125 @@
+warning: in the working copy of 'src/index.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/locales/cs/messages.po', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/locales/en/messages.po', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/locales/fr/messages.po', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/src/Inbox.js b/src/Inbox.js[m
+[1mindex fce0cdd..3084167 100644[m
+[1m--- a/src/Inbox.js[m
+[1m+++ b/src/Inbox.js[m
+[36m@@ -1,4 +1,6 @@[m
+[31m-import React from 'react'[m
+[32m+[m[32mimport React from 'react';[m
+[32m+[m[32mimport { Trans } from '@lingui/macro';[m
+[32m+[m
+ [m
+ export default function Inbox() {[m
+    const messages = [{}, {}][m
+[36m@@ -8,11 +10,13 @@[m [mexport default function Inbox() {[m
+ [m
+    return ([m
+       <div>[m
+[31m-        <h1>Message Inbox</h1>[m
+[32m+[m[32m        <h1><Trans>Message Inbox</Trans></h1>[m
+ [m
+         <p>[m
+[31m-          See all <a href="/unread">unread messages</a>{" or "}[m
+[31m-          <a onClick={markAsRead}>mark them</a> as read.[m
+[32m+[m[32m          <Trans>[m
+[32m+[m[32m            See all <a href="/unread">unread messages</a>{" or "}[m
+[32m+[m[32m            <a onClick={markAsRead}>mark them</a> as read.[m
+[32m+[m[32m          </Trans>[m
+         </p>[m
+ [m
+         <p>[m
+[1mdiff --git a/src/index.js b/src/index.js[m
+[1mindex 7f01d90..007fbeb 100644[m
+[1m--- a/src/index.js[m
+[1m+++ b/src/index.js[m
+[36m@@ -3,12 +3,18 @@[m [mimport { render } from 'react-dom'[m
+ [m
+ import { i18n } from '@lingui/core'[m
+ import { I18nProvider } from '@lingui/react'[m
+[31m-import { messages } from './locales/en/messages'[m
+[32m+[m[32mimport { messages as enMessages } from './locales/en/messages'[m
+[32m+[m[32mimport { messages as csMessages } from './locales/cs/messages'[m
+[32m+[m[32mimport { messages as frMessages } from './locales/fr/messages'[m
+ import Inbox from './Inbox'[m
+ [m
+ [m
+[31m-i18n.load('en', messages)[m
+[31m-i18n.activate('en')[m
+[32m+[m[32mi18n.load({[m
+[32m+[m[32m  en: enMessages,[m
+[32m+[m[32m  cs: csMessages,[m
+[32m+[m[32m  fr: frMessages[m
+[32m+[m[32m})[m
+[32m+[m[32mi18n.activate('cs')[m
+ [m
+ const App = () => ([m
+   <I18nProvider i18n={i18n}>[m
+[1mdiff --git a/src/locales/cs/messages.po b/src/locales/cs/messages.po[m
+[1mindex 2176f9d..13e29b0 100644[m
+[1m--- a/src/locales/cs/messages.po[m
+[1m+++ b/src/locales/cs/messages.po[m
+[36m@@ -6,3 +6,17 @@[m [mmsgstr ""[m
+ "Content-Transfer-Encoding: 8bit\n"[m
+ "X-Generator: @lingui/cli\n"[m
+ "Language: cs\n"[m
+[32m+[m[32m"Project-Id-Version: \n"[m
+[32m+[m[32m"Report-Msgid-Bugs-To: \n"[m
+[32m+[m[32m"PO-Revision-Date: \n"[m
+[32m+[m[32m"Last-Translator: \n"[m
+[32m+[m[32m"Language-Team: \n"[m
+[32m+[m[32m"Plural-Forms: \n"[m
+[32m+[m
+[32m+[m[32m#: src/Inbox.js:13[m
+[32m+[m[32mmsgid "Message Inbox"[m
+[32m+[m[32mmsgstr "Příchozí zprávy"[m
+[32m+[m
+[32m+[m[32m#: src/Inbox.js:16[m
+[32m+[m[32mmsgid "See all <0>unread messages</0> or <1>mark them</1> as read."[m
+[32m+[m[32mmsgstr ""[m
+[1mdiff --git a/src/locales/en/messages.po b/src/locales/en/messages.po[m
+[1mindex f6172a6..ef9e2ce 100644[m
+[1m--- a/src/locales/en/messages.po[m
+[1m+++ b/src/locales/en/messages.po[m
+[36m@@ -6,3 +6,17 @@[m [mmsgstr ""[m
+ "Content-Transfer-Encoding: 8bit\n"[m
+ "X-Generator: @lingui/cli\n"[m
+ "Language: en\n"[m
+[32m+[m[32m"Project-Id-Version: \n"[m
+[32m+[m[32m"Report-Msgid-Bugs-To: \n"[m
+[32m+[m[32m"PO-Revision-Date: \n"[m
+[32m+[m[32m"Last-Translator: \n"[m
+[32m+[m[32m"Language-Team: \n"[m
+[32m+[m[32m"Plural-Forms: \n"[m
+[32m+[m
+[32m+[m[32m#: src/Inbox.js:13[m
+[32m+[m[32mmsgid "Message Inbox"[m
+[32m+[m[32mmsgstr "Message Inbox"[m
+[32m+[m
+[32m+[m[32m#: src/Inbox.js:16[m
+[32m+[m[32mmsgid "See all <0>unread messages</0> or <1>mark them</1> as read."[m
+[32m+[m[32mmsgstr "See all <0>unread messages</0> or <1>mark them</1> as read."[m
+[1mdiff --git a/src/locales/fr/messages.po b/src/locales/fr/messages.po[m
+[1mindex 8ced874..852ccef 100644[m
+[1m--- a/src/locales/fr/messages.po[m
+[1m+++ b/src/locales/fr/messages.po[m
+[36m@@ -6,3 +6,17 @@[m [mmsgstr ""[m
+ "Content-Transfer-Encoding: 8bit\n"[m
+ "X-Generator: @lingui/cli\n"[m
+ "Language: fr\n"[m
+[32m+[m[32m"Project-Id-Version: \n"[m
+[32m+[m[32m"Report-Msgid-Bugs-To: \n"[m
+[32m+[m[32m"PO-Revision-Date: \n"[m
+[32m+[m[32m"Last-Translator: \n"[m
+[32m+[m[32m"Language-Team: \n"[m
+[32m+[m[32m"Plural-Forms: \n"[m
+[32m+[m
+[32m+[m[32m#: src/Inbox.js:13[m
+[32m+[m[32mmsgid "Message Inbox"[m
+[32m+[m[32mmsgstr ""[m
+[32m+[m
+[32m+[m[32m#: src/Inbox.js:16[m
+[32m+[m[32mmsgid "See all <0>unread messages</0> or <1>mark them</1> as read."[m
+[32m+[m[32mmsgstr ""[m
