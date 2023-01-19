@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trans } from '@lingui/macro';
+import { Trans, Plural } from '@lingui/macro';
 
 
 export default function Inbox() {
@@ -19,6 +19,13 @@ export default function Inbox() {
           </Trans>
         </p>
 
+        <p>
+          <Plural
+            value={messagesCount}
+            one="There's # message in your inbox"
+            other="There are # messages in your inbox"
+          />
+        </p>
         <p>
           {
             messagesCount === 1

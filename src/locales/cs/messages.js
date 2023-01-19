@@ -1,1 +1,1 @@
-/*eslint-disable*/module.exports={messages:JSON.parse("{\"Message Inbox\":\"Příchozí zprávy\"}")};
+/*eslint-disable*/module.exports={messages:JSON.parse("{\"Message Inbox\":\"Příchozí zprávy\",\"See all <0>unread messages</0> or <1>mark them</1> as read.\":\"Zobrazit všechny <0> nepřečtené zprávy </0> nebo <1> označit je </1> jako přečtené.\"}")};
